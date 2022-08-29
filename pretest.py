@@ -122,10 +122,9 @@ def q6():
         a1.antData()
         a1.draw()
 
-        pygame.display.flip() #update graphics each game loop
+        pygame.display.flip()
         screen.fill((0,0,0))
 
-    #END GAME LOOP#######################################################
     pygame.quit()
 
 inp = input("which question do you want to see? 1,2,3,4,5,6 \n --")
