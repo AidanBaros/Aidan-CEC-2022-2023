@@ -1,12 +1,15 @@
 import numpy
+import math
 
-matrix1 = numpy.array([[1,3],
-                        [2,5]])
+matrix1 = numpy.array([[1,2,1],
+                       [6,2,1],
+                       [4,0,1]])
 
-print("Numpy Matrix is:")
 print(matrix1)
 
 determinant = numpy.linalg.det(matrix1)
 
-print("\nDeterminant of given 2X2 matrix:")
-print(int(determinant))
+print(abs(int(determinant)))
+print(abs(int(determinant/2)))
+
+
