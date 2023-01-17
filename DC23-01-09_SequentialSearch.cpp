@@ -1,4 +1,5 @@
 #include<iostream>
+#include<list>
 using namespace std;
 
 int main() {
@@ -16,20 +17,22 @@ int main() {
 	cout << "would you like to reverse the order of the list? Y/N" << endl;
 	cin >> reversechoice;
 
-	int newList[size(IDs)];
-
-	if (toupper(reversechoice) == 'Y') {
-		for (int i = 0; i < size(IDs); i++) {
-			newList.push_front(IDs[i]);
+	if (reversechoice == 'Y' or reversechoice == 'y') {
+		location = size(IDs) - 1;
+		while (location >= 0) {
+			if (IDs[location] == searchItem) {
+				found++;
+			}
+			location--;
 		}
 	}
-
-	//cout << size(IDs) << endl;
-	while (location < size(IDs)) {
-		if (IDs[location] == searchItem) {
-			found++;
+	else {
+		while (location < size(IDs)) {
+			if (IDs[location] == searchItem) {
+				found++;
+			}
+			location++;
 		}
-		location++;
 	}
 
 	if (found > 0) {
@@ -38,3 +41,4 @@ int main() {
 	else
 		cout << "ID was not found" << endl;
 }
+
