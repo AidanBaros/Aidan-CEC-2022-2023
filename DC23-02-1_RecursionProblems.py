@@ -42,8 +42,25 @@ def threeb(x):
         total += int(num)
     return total
 
-def four(x,y,z):
-    pass
+def four(x,y,z=0,a=0):
+    if x < y:
+        return four(y,x,z)
+    z+=1
+    a = y/z
+    if a%2 == 0:
+        if x%a == 0:
+            return a
+        else:
+            return four(x,y,z)
+    else:
+        return four(x,y,z)
+
+def fourb(x:int,y):
+    if x < y: x, y = y, x
+    for i in range(x):
+        z = x - i
+        if x%z == 0 and y%z == 0:
+            return z
 
 def five(x:str,y:str="",z=0):
     if z == 0 and y == "":
@@ -57,7 +74,10 @@ def five(x:str,y:str="",z=0):
 def fiveb(x):
     return x[::-1]
 
-def six(x,y,z):
+def six(x,y=0,z=0):
+    pass
+
+def sixb(x,y=0,z=0):
     pass
 
 
@@ -86,9 +106,13 @@ elif x == "3b":
     y = input("3b: ")
     print(threeb(y))
 elif x == "4":
-    pass
+    y = int(input("4: "))
+    z = int(input("4: "))
+    print(four(y,z))
 elif x == "4b":
-    pass
+    y = int(input("4b: "))
+    z = int(input("4b: "))
+    print(fourb(y,z))
 elif x == "5":
     y = input("5: ")
     print(five(y))
@@ -96,9 +120,11 @@ elif x == "5b":
     y = input("5b: ")
     print(fiveb(y))
 elif x == "6":
-    pass
+    y = int(input("6: "))
+    print(six(y))
 elif x == "6b":
-    pass
+    y = int(input("6b: "))
+    print(sixb(y))
 else:
     print("Not an option")
 
