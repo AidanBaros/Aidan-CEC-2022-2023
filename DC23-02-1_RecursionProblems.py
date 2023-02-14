@@ -1,6 +1,4 @@
-import math
 # b is for better because some of these would be better without recursion
-
 
 def one(x: int, y: int = 0) -> int:
     y = x + y
@@ -74,17 +72,36 @@ def five(x:str,y:str="",z=0):
 def fiveb(x):
     return x[::-1]
 
-def six(x,y=0,z=0):
-    pass
+def six(x,y=[1],z=[1]):
+    y = z.copy()
+    if x == 0:
+        return ""
+    print(y)
+    for i in range(len(y)+1):
+        if i == len(y):
+            z.append(1)
+        elif i == 0:
+            z[0] = 1
+        else:
+            z[i] = int(y[i]) + int(y[i-1])
+    x -= 1
+    return six(x,y,z)
 
-def sixb(x,y=0,z=0):
-    pass
-
-
-
-
+def sixb(x):
+    pascal = []
+    NewPascal = [1]
+    for j in range(x):
+        pascal = NewPascal.copy()
+        print(NewPascal)
+        for i in range(len(pascal)+1):
+            if i == len(pascal):
+                NewPascal.append(1)
+            elif i == 0:
+                pass
+            else:
+                NewPascal[i] = int(pascal[i]) + int(pascal[i-1])
+        
 x = input(" -- ")
-
 if x == "1":
     y = int(input("1: "))
     print(one(y))
@@ -124,7 +141,7 @@ elif x == "6":
     print(six(y))
 elif x == "6b":
     y = int(input("6b: "))
-    print(sixb(y))
+    sixb(y)
 else:
     print("Not an option")
 
